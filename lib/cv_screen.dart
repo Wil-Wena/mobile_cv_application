@@ -12,7 +12,9 @@ class _CVScreenState extends State<CVScreen> {
   String slackUsername = "Wilson Aballey";
   String gitHandle = "Wil_wena";
   String bio =
-      "I am a passionate computer engineer who seeks to solve world problems through tech";
+      """I am a passionate computer engineer who seeks to solve world problems through tech
+      ghjkfldgfyuvhdn heisklxzhbgfrbvhdvbfgh sqgvdeygbcwhi gtvybuaheyirgfybhecbbg bas  vazjsvajszhvgcj svjc agsgjcabcsvgc bsvchzj  jccvjgvvd svd sjdfvdsgfdsjvdsdsvfdsfdsvfdsdvsdvfs 
+      """;
 
   @override
   Widget build(BuildContext context) {
@@ -42,16 +44,25 @@ class _CVScreenState extends State<CVScreen> {
                 ),
                 const Divider(),
                 const RequireText(text: "Full Name"),
-                Text(fullName),
+                Text(
+                  fullName,
+                  style: const TextStyle(color: Colors.white70, fontSize: 15),
+                ),
                 const SizedBox(height: 20),
                 const RequireText(text: "Slack Username"),
-                Text(slackUsername),
+                Text(slackUsername,
+                    style:
+                        const TextStyle(color: Colors.white70, fontSize: 15)),
                 const SizedBox(height: 20),
                 const RequireText(text: "Github Handle"),
-                Text(gitHandle),
+                Text(gitHandle,
+                    style:
+                        const TextStyle(color: Colors.white70, fontSize: 15)),
                 const SizedBox(height: 20),
                 const RequireText(text: "Bio"),
-                Text(bio),
+                Text(bio,
+                    style:
+                        const TextStyle(color: Colors.white70, fontSize: 15)),
               ],
             ),
           ),
