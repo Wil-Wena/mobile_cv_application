@@ -14,13 +14,20 @@ class _CVScreenState extends State<CVScreen> {
   String bio =
       """I am a passionate computer engineer who seeks to solve world problems through tech
       ghjkfldgfyuvhdn heisklxzhbgfrbvhdvbfgh sqgvdeygbcwhi gtvybuaheyirgfybhecbbg bas  vazjsvajszhvgcj svjc agsgjcabcsvgc bsvchzj  jccvjgvvd svd sjdfvdsgfdsjvdsdsvfdsfdsvfdsdvsdvfs 
+      I am a passionate computer engineer who seeks to solve world problems through tech
+      ghjk
+      I am a passionate computer engineer who seeks to solve world problems through tech
+      ghjk
       """;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My CV'),
+        scrolledUnderElevation: 1,
+        centerTitle: true,
+        // backgroundColor: Colors.lightBlueAccent,
+        title: const Text('Curriculum Vitae'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -66,6 +73,18 @@ class _CVScreenState extends State<CVScreen> {
               ],
             ),
           ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        focusElevation: 23,
+        backgroundColor: Colors.lightBlueAccent,
+        hoverColor: Colors.white,
+        //splashColor: Colors.purple,
+        tooltip: "Tap to edit",
+        onPressed: () {},
+        child: Icon(
+          Icons.edit,
+          //semanticLabel: "Edit",
         ),
       ),
     );
