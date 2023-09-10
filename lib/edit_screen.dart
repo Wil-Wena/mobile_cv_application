@@ -76,6 +76,12 @@ class RequireTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      decoration: const InputDecoration(
+        enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(255, 171, 182, 187))),
+        focusedBorder:
+            UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+      ),
       autocorrect: false,
       controller: controller,
       cursorColor: Colors.white,
