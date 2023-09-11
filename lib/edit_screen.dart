@@ -49,11 +49,18 @@ class EditScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 Center(
                   child: ElevatedButton(
+                    autofocus: true,
                     onPressed: () {
                       onUpdate();
                       Navigator.pop(context);
                     },
-                    child: const Text('Update'),
+                    child: const Text(
+                      'Update',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 69, 134, 187),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ),
               ],

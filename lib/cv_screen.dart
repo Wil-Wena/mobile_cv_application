@@ -44,6 +44,7 @@ class _CVScreenState extends State<CVScreen> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

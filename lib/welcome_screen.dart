@@ -10,7 +10,7 @@ class WelcomeScreen extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            constraints: BoxConstraints(maxHeight: 1000, maxWidth: 1000),
+            constraints: const BoxConstraints(maxHeight: 1000, maxWidth: 1000),
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/background.jpg"),
@@ -54,7 +54,7 @@ class WelcomeScreen extends StatelessWidget {
                     // Navigate to your main screen
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (context) => CVScreen(),
+                        builder: (context) => const CVScreen(),
                       ),
                     );
                   },
