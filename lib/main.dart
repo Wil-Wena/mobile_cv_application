@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_cv_application/cv_screen.dart';
+import 'package:mobile_cv_application/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: CVScreen(),
+      home: WelcomeScreen(),
     );
   }
 }
