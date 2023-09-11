@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:mobile_cv_application/cv_screen.dart';
 
 class EditScreen extends StatelessWidget {
-  final TextEditingController? nameController;
-  final TextEditingController? slackController;
-  final TextEditingController? githubController;
-  final TextEditingController? bioController;
-  final Function? onUpdate;
+  final TextEditingController nameController;
+  final TextEditingController slackController;
+  final TextEditingController githubController;
+  final TextEditingController bioController;
+  final Function onUpdate;
   const EditScreen(
       {super.key,
-      this.nameController,
-      this.slackController,
-      this.githubController,
-      this.bioController,
-      this.onUpdate});
+      required this.nameController,
+      required this.slackController,
+      required this.githubController,
+      required this.bioController,
+      required this.onUpdate});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class EditScreen extends StatelessWidget {
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      onUpdate!();
+                      onUpdate();
                       Navigator.pop(context);
                     },
                     child: const Text('Update'),
@@ -77,10 +77,10 @@ class RequireTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: const InputDecoration(
-        enabledBorder: UnderlineInputBorder(
+        enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(255, 171, 182, 187))),
         focusedBorder:
-            UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+            OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
       ),
       autocorrect: false,
       controller: controller,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_cv_application/edit_screen.dart';
 
 class CVScreen extends StatefulWidget {
   const CVScreen({super.key});
@@ -19,8 +20,30 @@ class _CVScreenState extends State<CVScreen> {
       I am a passionate computer engineer who seeks to solve world problems through tech
       ghjk
       """;
+  TextEditingController nameController = TextEditingController();
+  TextEditingController slackController = TextEditingController();
+  TextEditingController githubController = TextEditingController();
+  TextEditingController bioController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    nameController.text = fullName;
+    slackController.text = slackUsername;
+    githubController.text = gitHandle;
+    bioController.text = bio;
+  }
+
+  // Function to update the CV fields
+  void updateCV() {
+    setState(() {
+      fullName = nameController.text;
+      slackUsername = slackController.text;
+      gitHandle = githubController.text;
+      bio = bioController.text;
+    });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -81,8 +104,21 @@ class _CVScreenState extends State<CVScreen> {
         hoverColor: Colors.white,
         //splashColor: Colors.purple,
         tooltip: "Tap to edit",
-        onPressed: () {},
-        child: Icon(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EditScreen(
+                nameController: nameController,
+                slackController: slackController,
+                githubController: githubController,
+                bioController: bioController,
+                onUpdate: updateCV,
+              ),
+            ),
+          );
+        },
+        child: const Icon(
           Icons.edit,
           //semanticLabel: "Edit",
         ),
