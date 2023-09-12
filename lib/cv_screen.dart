@@ -11,15 +11,27 @@ class CVScreen extends StatefulWidget {
 class _CVScreenState extends State<CVScreen> {
   String fullName = 'Aballey Wilson Wenawome';
   String slackUsername = "Wilson Aballey";
-  String gitHandle = "Wil_wena";
+  String gitHandle = "Wil_Wena";
   String bio =
       """I am a passionate computer engineer who seeks to solve world problems through tech
       ghjkfldgfyuvhdn heisklxzhbgfrbvhdvbfgh sqgvdeygbcwhi gtvybuaheyirgfybhecbbg bas  vazjsvajszhvgcj svjc agsgjcabcsvgc bsvchzj  jccvjgvvd svd sjdfvdsgfdsjvdsdsvfdsfdsvfdsdvsdvfs 
-      I am a passionate computer engineer who seeks to solve world problems through tech
-      ghjk
-      I am a passionate computer engineer who seeks to solve world problems through tech
-      ghjk
       """;
+
+  List<String> education = [
+    'Bachelor of Science in Computer Science - University of XYZ',
+    'High School Diploma - ABC High School',
+  ];
+
+  List<String> workExperience = [
+    'Frontend Intern - UviTech (Oct 2022 - Dec 2022)',
+  ];
+
+  List<String> skills = [
+    'Flutter',
+    'Dart',
+    'UI/UX Design',
+  ];
+
   TextEditingController nameController = TextEditingController();
   TextEditingController slackController = TextEditingController();
   TextEditingController githubController = TextEditingController();
@@ -94,6 +106,56 @@ class _CVScreenState extends State<CVScreen> {
                 Text(bio,
                     style:
                         const TextStyle(color: Colors.white70, fontSize: 15)),
+                const Divider(),
+                const Text(
+                  'Education',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+                const Divider(),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: education.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Text("- ${education[index]}");
+                  },
+                ),
+                SizedBox(height: 10),
+                const Divider(),
+                const Text(
+                  'Work Experience',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+                const Divider(),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: workExperience.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Text("- ${workExperience[index]}");
+                  },
+                ),
+                SizedBox(height: 10),
+                const Divider(),
+                const Text(
+                  'Skills',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+                const Divider(),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: skills.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Text("- ${skills[index]}");
+                  },
+                )
               ],
             ),
           ),
