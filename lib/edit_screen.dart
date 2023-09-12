@@ -6,6 +6,9 @@ class EditScreen extends StatelessWidget {
   final TextEditingController slackController;
   final TextEditingController githubController;
   final TextEditingController bioController;
+  final TextEditingController workExperinceController;
+  final TextEditingController skillsController;
+  final List<String> education; // Add education field
   final Function onUpdate;
   const EditScreen(
       {super.key,
@@ -13,7 +16,10 @@ class EditScreen extends StatelessWidget {
       required this.slackController,
       required this.githubController,
       required this.bioController,
-      required this.onUpdate});
+      required this.onUpdate,
+      required this.workExperinceController,
+      required this.skillsController,
+      required this.education});
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +52,28 @@ class EditScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 const RequireText(text: "Bio"),
                 RequireTextField(controller: bioController),
+                const SizedBox(height: 20),
+                const RequireText(text: "Education"),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: education.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return TextField(
+                      controller: TextEditingController(text: education[index]),
+                      onChanged: (text) {
+                        // Update the education data in real-time
+                        education[index] = text;
+                      },
+                    );
+                  },
+                ),
+                //RequireTextField(controller: educationController),
+                const SizedBox(height: 20),
+                const RequireText(text: "Work Experince"),
+                RequireTextField(controller: workExperinceController),
+                const SizedBox(height: 20),
+                const RequireText(text: "Skills"),
+                RequireTextField(controller: skillsController),
                 const SizedBox(height: 20),
                 Center(
                   child: ElevatedButton(

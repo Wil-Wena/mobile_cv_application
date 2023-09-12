@@ -18,8 +18,8 @@ class _CVScreenState extends State<CVScreen> {
       """;
 
   List<String> education = [
-    'Bachelor of Science in Computer Science - University of XYZ',
-    'High School Diploma - ABC High School',
+    'Bachelor of Science in Computer Engineering (Oct 2019 - Aug 2023)',
+    'St James Sem/Senior High School (May 2016 - Apr 2019)',
   ];
 
   List<String> workExperience = [
@@ -36,6 +36,9 @@ class _CVScreenState extends State<CVScreen> {
   TextEditingController slackController = TextEditingController();
   TextEditingController githubController = TextEditingController();
   TextEditingController bioController = TextEditingController();
+  TextEditingController educationController = TextEditingController();
+  TextEditingController workExperienceController = TextEditingController();
+  TextEditingController skillsController = TextEditingController();
 
   @override
   void initState() {
@@ -44,6 +47,20 @@ class _CVScreenState extends State<CVScreen> {
     slackController.text = slackUsername;
     githubController.text = gitHandle;
     bioController.text = bio;
+    education = [
+      'Bachelor of Science in Computer Engineering (Oct 2019 - Aug 2023)',
+      'St James Sem/Senior High School (May 2016 - Apr 2019)',
+    ];
+
+    workExperience = [
+      'Frontend Intern - UviTech (Oct 2022 - Dec 2022)',
+    ];
+
+    skills = [
+      'Flutter',
+      'Dart',
+      'UI/UX Design',
+    ];
   }
 
   // Function to update the CV fields
@@ -53,6 +70,15 @@ class _CVScreenState extends State<CVScreen> {
       slackUsername = slackController.text;
       gitHandle = githubController.text;
       bio = bioController.text;
+
+      //Education
+      education.addAll(educationController.text.split(''));
+
+      //Work Experience
+      workExperience.addAll(workExperienceController.text.split(''));
+
+      //Skills
+      skills.addAll(skillsController.text.split(''));
     });
   }
 
@@ -119,10 +145,12 @@ class _CVScreenState extends State<CVScreen> {
                   shrinkWrap: true,
                   itemCount: education.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Text("- ${education[index]}");
+                    return Text("- ${education[index]}",
+                        style: const TextStyle(
+                            color: Colors.white70, fontSize: 15));
                   },
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 const Divider(),
                 const Text(
                   'Work Experience',
@@ -136,10 +164,12 @@ class _CVScreenState extends State<CVScreen> {
                   shrinkWrap: true,
                   itemCount: workExperience.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Text("- ${workExperience[index]}");
+                    return Text("- ${workExperience[index]}",
+                        style: const TextStyle(
+                            color: Colors.white70, fontSize: 15));
                   },
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 const Divider(),
                 const Text(
                   'Skills',
@@ -153,7 +183,9 @@ class _CVScreenState extends State<CVScreen> {
                   shrinkWrap: true,
                   itemCount: skills.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Text("- ${skills[index]}");
+                    return Text("- ${skills[index]}",
+                        style: const TextStyle(
+                            color: Colors.white70, fontSize: 15));
                   },
                 )
               ],
@@ -177,6 +209,10 @@ class _CVScreenState extends State<CVScreen> {
                 githubController: githubController,
                 bioController: bioController,
                 onUpdate: updateCV,
+                workExperinceController: workExperienceController,
+                skillsController: skillsController,
+                //educationController: educationController,
+                education: education,
               ),
             ),
           );
