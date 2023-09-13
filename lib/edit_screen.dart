@@ -8,7 +8,7 @@ class EditScreen extends StatelessWidget {
   final TextEditingController bioController;
   final TextEditingController workExperinceController;
   final TextEditingController skillsController;
-  final List<String> education; // Add education field
+  final TextEditingController educationController;
   final Function onUpdate;
   const EditScreen(
       {super.key,
@@ -19,7 +19,7 @@ class EditScreen extends StatelessWidget {
       required this.onUpdate,
       required this.workExperinceController,
       required this.skillsController,
-      required this.education});
+      required this.educationController});
 
   @override
   Widget build(BuildContext context) {
@@ -54,20 +54,7 @@ class EditScreen extends StatelessWidget {
                 RequireTextField(controller: bioController),
                 const SizedBox(height: 20),
                 const RequireText(text: "Education"),
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: education.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return TextField(
-                      controller: TextEditingController(text: education[index]),
-                      onChanged: (text) {
-                        // Update the education data in real-time
-                        education[index] = text;
-                      },
-                    );
-                  },
-                ),
-                //RequireTextField(controller: educationController),
+                RequireTextField(controller: educationController),
                 const SizedBox(height: 20),
                 const RequireText(text: "Work Experince"),
                 RequireTextField(controller: workExperinceController),

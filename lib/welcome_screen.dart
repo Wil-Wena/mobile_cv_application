@@ -27,16 +27,7 @@ class WelcomeScreen extends StatelessWidget {
                   width: 150,
                   height: 150,
                 ),
-                const SizedBox(height: 20),
 
-                const Text(
-                  "Curriculum Vitae",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.white,
-                  ),
-                ),
                 const SizedBox(height: 20),
                 // Welcome message
                 const Text(

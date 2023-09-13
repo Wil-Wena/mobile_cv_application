@@ -13,24 +13,21 @@ class _CVScreenState extends State<CVScreen> {
   String slackUsername = "Wilson Aballey";
   String gitHandle = "Wil_Wena";
   String bio =
-      """I am a passionate computer engineer who seeks to solve world problems through tech
-      ghjkfldgfyuvhdn heisklxzhbgfrbvhdvbfgh sqgvdeygbcwhi gtvybuaheyirgfybhecbbg bas  vazjsvajszhvgcj svjc agsgjcabcsvgc bsvchzj  jccvjgvvd svd sjdfvdsgfdsjvdsdsvfdsfdsvfdsdvsdvfs 
+      """I am a passionate computer engineer who seeks to solve world problems through programming.
       """;
 
-  List<String> education = [
-    'Bachelor of Science in Computer Engineering (Oct 2019 - Aug 2023)',
-    'St James Sem/Senior High School (May 2016 - Apr 2019)',
-  ];
+  String education =
+      """- Bachelor of Science in Computer Engineering (Oct 2019 - Aug 2023)
+- St James Sem/Senior High School (May 2016 - Apr 2019)""";
 
-  List<String> workExperience = [
-    'Frontend Intern - UviTech (Oct 2022 - Dec 2022)',
-  ];
+  String workExperience = """
+- Frontend Intern - UviTech (Oct 2022 - Dec 2022)""";
 
-  List<String> skills = [
-    'Flutter',
-    'Dart',
-    'UI/UX Design',
-  ];
+  String skills = """
+  - Flutter
+  - Dart
+  - UI/UX Design
+  """;
 
   TextEditingController nameController = TextEditingController();
   TextEditingController slackController = TextEditingController();
@@ -47,20 +44,9 @@ class _CVScreenState extends State<CVScreen> {
     slackController.text = slackUsername;
     githubController.text = gitHandle;
     bioController.text = bio;
-    education = [
-      'Bachelor of Science in Computer Engineering (Oct 2019 - Aug 2023)',
-      'St James Sem/Senior High School (May 2016 - Apr 2019)',
-    ];
-
-    workExperience = [
-      'Frontend Intern - UviTech (Oct 2022 - Dec 2022)',
-    ];
-
-    skills = [
-      'Flutter',
-      'Dart',
-      'UI/UX Design',
-    ];
+    educationController.text = education;
+    skillsController.text = skills;
+    workExperienceController.text = workExperience;
   }
 
   // Function to update the CV fields
@@ -70,15 +56,9 @@ class _CVScreenState extends State<CVScreen> {
       slackUsername = slackController.text;
       gitHandle = githubController.text;
       bio = bioController.text;
-
-      //Education
-      education.addAll(educationController.text.split(''));
-
-      //Work Experience
-      workExperience.addAll(workExperienceController.text.split(''));
-
-      //Skills
-      skills.addAll(skillsController.text.split(''));
+      education = educationController.text;
+      skills = skillsController.text;
+      workExperience = workExperienceController.text;
     });
   }
 
@@ -141,14 +121,9 @@ class _CVScreenState extends State<CVScreen> {
                       fontWeight: FontWeight.bold),
                 ),
                 const Divider(),
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: education.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Text("- ${education[index]}",
-                        style: const TextStyle(
-                            color: Colors.white70, fontSize: 15));
-                  },
+                Text(
+                  education,
+                  style: const TextStyle(color: Colors.white70, fontSize: 15),
                 ),
                 const SizedBox(height: 10),
                 const Divider(),
@@ -160,14 +135,9 @@ class _CVScreenState extends State<CVScreen> {
                       fontWeight: FontWeight.bold),
                 ),
                 const Divider(),
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: workExperience.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Text("- ${workExperience[index]}",
-                        style: const TextStyle(
-                            color: Colors.white70, fontSize: 15));
-                  },
+                Text(
+                  workExperience,
+                  style: const TextStyle(color: Colors.white70, fontSize: 15),
                 ),
                 const SizedBox(height: 10),
                 const Divider(),
@@ -179,14 +149,9 @@ class _CVScreenState extends State<CVScreen> {
                       fontWeight: FontWeight.bold),
                 ),
                 const Divider(),
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: skills.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Text("- ${skills[index]}",
-                        style: const TextStyle(
-                            color: Colors.white70, fontSize: 15));
-                  },
+                Text(
+                  skills,
+                  style: const TextStyle(color: Colors.white70, fontSize: 15),
                 )
               ],
             ),
@@ -211,8 +176,7 @@ class _CVScreenState extends State<CVScreen> {
                 onUpdate: updateCV,
                 workExperinceController: workExperienceController,
                 skillsController: skillsController,
-                //educationController: educationController,
-                education: education,
+                educationController: educationController,
               ),
             ),
           );
