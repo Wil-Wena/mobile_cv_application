@@ -56,7 +56,7 @@ class EditScreen extends StatelessWidget {
                 const RequireText(text: "Education"),
                 RequireTextField(controller: educationController),
                 const SizedBox(height: 20),
-                const RequireText(text: "Work Experince"),
+                const RequireText(text: "Work Experience"),
                 RequireTextField(controller: workExperinceController),
                 const SizedBox(height: 20),
                 const RequireText(text: "Skills"),

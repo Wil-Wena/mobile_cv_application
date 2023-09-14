@@ -11,9 +11,9 @@ class CVScreen extends StatefulWidget {
 class _CVScreenState extends State<CVScreen> {
   String fullName = 'Aballey Wilson Wenawome';
   String slackUsername = "Wilson Aballey";
-  String gitHandle = "Wil_Wena";
+  String gitHandle = "Wil-Wena";
   String bio =
-      """I am a passionate computer engineer who seeks to solve world problems through programming.
+      """As a dedicated computer engineer, my goal in life is to use code to address global issues. In the past two years, I've worked as a smartphone developer.
       """;
 
   String education =
